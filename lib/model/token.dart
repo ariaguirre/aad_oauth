@@ -43,7 +43,7 @@ class Token {
   /// Convert Token to JSON map.
   static Map toJsonMap(Token model) {
     var ret = {};
-    if (model.accessToken != null) {
+    if (model.accessToken != null && model.refreshToken != null) {
       ret['access_token'] = model.accessToken;
       ret['refresh_token'] = model.refreshToken;
     }
