@@ -111,6 +111,7 @@ var aadOauth = (function () {
       let result = await redirectHandlerTask;
       if (result !== null) {
         authResult = result;
+        console.log("AUTHRESULT:", authResult);
       }
     }
     catch (error) {
@@ -125,7 +126,7 @@ var aadOauth = (function () {
 
     if(authResult != null) {
       // Skip interactive login
-      onSuccess(authResult.accessToken ?? null);
+      onSuccess(authResult.accessToken ?? null, authResult.refreshToken ?? null);
       return
     }
 
