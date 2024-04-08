@@ -102,8 +102,8 @@ class WebOAuth extends CoreOAuth {
     jsLogin(
       refreshIfAvailable,
       config.webUseRedirect,
-      allowInterop((value) => completer
-          .complete(Right(Token(accessToken: value, refreshToken: '')))),
+      allowInterop(
+          (value) => completer.complete(Right(Token(accessToken: value)))),
       allowInterop((error) => completer.complete(Left(AadOauthFailure(
             errorType: ErrorType.accessDeniedOrAuthenticationCanceled,
             message:
