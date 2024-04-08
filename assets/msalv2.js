@@ -127,6 +127,7 @@ var aadOauth = (function () {
     if(authResult != null) {
       // Skip interactive login
       onSuccess(authResult.accessToken ?? null, authResult.refreshToken ?? null);
+      console.log("AUTHRESULT silent:", authResult);
       return
     }
 
@@ -152,7 +153,7 @@ var aadOauth = (function () {
         });
 
         authResult = interactiveAuthResult;
-
+        console.log("AUTHRESULT interactive:", authResult);
         onSuccess(authResult.accessToken ?? null, authResult.refreshToken ?? null);
       } catch (error) {
         // rethrow
