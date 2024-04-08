@@ -43,17 +43,16 @@ class Token {
   /// Convert Token to JSON map.
   static Map toJsonMap(Token model) {
     var ret = {};
-    /* if (model.accessToken != null && model.refreshToken != null) {
+    if (model.accessToken != null && model.refreshToken != null) {
       ret['access_token'] = model.accessToken;
       ret['refresh_token'] = model.refreshToken;
     }
     if (model.tokenType != null) {
       ret['token_type'] = model.tokenType;
-    }*/
+    }
     if (model.refreshToken != null) {
       ret['refresh_token'] = model.refreshToken;
     }
-    /*
     if (model.expiresIn != null) {
       ret['expires_in'] = model.expiresIn;
     }
@@ -62,7 +61,7 @@ class Token {
     }
     if (model.idToken != null) {
       ret['id_token'] = model.idToken;
-    }*/
+    }
     return ret;
   }
 
