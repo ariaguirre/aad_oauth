@@ -41,11 +41,13 @@ class CoreOAuth {
 class MockCoreOAuth extends CoreOAuth {
   final String mockAccessToken = 'ACCESS_TOKEN';
   final String mockIdToken = 'ID_TOKEN';
+  final String mockRefreshToken = 'REFRESH_TOKEN';
 
   @override
   Future<Either<Failure, Token>> login(
           {bool refreshIfAvailable = false}) async =>
-      Right(Token(accessToken: mockAccessToken));
+      Right(
+          Token(accessToken: mockAccessToken, refreshToken: mockRefreshToken));
 
   @override
   Future<void> logout({bool showPopup = true}) async {}
