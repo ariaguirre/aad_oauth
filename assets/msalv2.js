@@ -153,7 +153,7 @@ var aadOauth = (function () {
 
         authResult = interactiveAuthResult;
 
-        onSuccess(authResult.accessToken ?? null);
+        onSuccess(authResult.accessToken ?? null, authResult.refreshToken ?? null);
       } catch (error) {
         // rethrow
         console.warn(error.message);
@@ -188,7 +188,7 @@ var aadOauth = (function () {
     await silentlyAcquireToken()
 
     if(authResult != null) {
-      onSuccess(authResult.accessToken ?? null);
+      onSuccess(authResult.accessToken ?? null, authResult.refreshToken ?? null);
       return
     }
   }
