@@ -97,8 +97,8 @@ class WebOAuth extends CoreOAuth {
   @override
   Future<Either<Failure, Token>> login(
       {bool refreshIfAvailable = false}) async {
-    final completer = Completer<Either<Failure, Token>>();
     print("LOGIN");
+    final completer = Completer<Either<Failure, Token>>();
     jsLogin(
       refreshIfAvailable,
       config.webUseRedirect,
