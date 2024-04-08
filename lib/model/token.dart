@@ -45,7 +45,6 @@ class Token {
     var ret = {};
     if (model.accessToken != null) {
       ret['access_token'] = model.accessToken;
-      ret['refresh_token'] = model.refreshToken;
     }
     if (model.tokenType != null) {
       ret['token_type'] = model.tokenType;
