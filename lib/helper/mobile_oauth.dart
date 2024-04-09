@@ -84,6 +84,7 @@ class MobileOAuth extends CoreOAuth {
 
     if (token.hasValidAccessToken()) {
       accessToken = token.accessToken;
+      print('GET TOKEN: $token');
     } else {
       await refreshToken();
       token = await _authStorage.loadTokenFromCache();
@@ -121,7 +122,7 @@ class MobileOAuth extends CoreOAuth {
   Future<Either<Failure, Token>> _authorization(
       {bool refreshIfAvailable = false}) async {
     var token = await _authStorage.loadTokenFromCache();
-
+    print('AUTHSTORAGE: $_authStorage');
     if (!refreshIfAvailable) {
       if (token.hasValidAccessToken()) {
         return Right(token);
