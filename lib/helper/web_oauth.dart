@@ -22,7 +22,7 @@ external void jsInit(MsalConfig config);
 external void jsLogin(
   bool refreshIfAvailable,
   bool useRedirect,
-  void Function(dynamic) onSuccess,
+  void Function(String, String) onSuccess,
   void Function(dynamic) onError,
 );
 
@@ -102,8 +102,8 @@ class WebOAuth extends CoreOAuth {
     jsLogin(
       refreshIfAvailable,
       config.webUseRedirect,
-      allowInterop(
-          (value) => completer.complete(Right(Token(accessToken: value)))),
+      allowInterop((accessToken, refreshToken) => completer.complete(
+          Right(Token(accessToken: accessToken, refreshToken: refreshToken)))),
       allowInterop((error) => completer.complete(Left(AadOauthFailure(
             errorType: ErrorType.accessDeniedOrAuthenticationCanceled,
             message:

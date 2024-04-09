@@ -126,8 +126,8 @@ var aadOauth = (function () {
 
     if(authResult != null) {
       // Skip interactive login
-      onSuccess(authResult.accessToken ?? null, authResult.refreshToken ?? null);
       console.log("AUTHRESULT silent:", authResult);
+      onSuccess(authResult.accessToken ?? null, authResult.refreshToken ?? null);
       return
     }
 
@@ -251,6 +251,7 @@ var aadOauth = (function () {
 
   async function getAccessToken() {
     var result = await silentlyAcquireToken()
+    console.log('RESULT getAccessToken', result)
     return result ? result.accessToken : null;
   }
 
